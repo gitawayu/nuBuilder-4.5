@@ -1,4 +1,10 @@
+*.*~
+fixes.txt
 nuconfig.php
+.buildpath
+.project
+.settings
+.gitignore*
 wsgi_sso/
 !wsgi_sso/templates
 !wsgi_sso/nuSsoDbFunctions.py

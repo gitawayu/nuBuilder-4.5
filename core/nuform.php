@@ -1776,16 +1776,31 @@ function nuAddPrintButtons($f, $t, $a){
 
 }
 
-function nuAddJavaScript($js, $bc = false){
+// function nuAddJavaScript($js, $bc = false){
 
-	if ($bc == true) {
-		if (isset($GLOBALS['EXTRAJS_BC'])) {
-			$GLOBALS['EXTRAJS_BC'] = $GLOBALS['EXTRAJS_BC'] . "\n\n" . $js;
-		}
-	} else if (isset($GLOBALS['EXTRAJS'])) {
-		$GLOBALS['EXTRAJS'] = $GLOBALS['EXTRAJS'] . "\n\n" . $js;
-	}
+// 	if ($bc == true) {
+// 		if (isset($GLOBALS['EXTRAJS_BC'])) {
+// 			$GLOBALS['EXTRAJS_BC'] = $GLOBALS['EXTRAJS_BC'] . "\n\n" . $js;
+// 		}
+// 	} else if (isset($GLOBALS['EXTRAJS'])) {
+// 		$GLOBALS['EXTRAJS'] = $GLOBALS['EXTRAJS'] . "\n\n" . $js;
+// 	}
 
+// }
+
+function nuAddJavaScript($js, $bc = false, $first = false){
+    
+    $extraJSKey = $bc ? 'EXTRAJS_BC' : 'EXTRAJS';
+    if (isset($GLOBALS[$extraJSKey])) {
+        $extraJS = $GLOBALS[$extraJSKey];
+        if ($first) {
+            $extraJS = $js . "\n\n" . $extraJS;
+        } else {
+            $extraJS .= "\n\n" . $js;
+        }
+        $GLOBALS[$extraJSKey] = $extraJS;
+    }
+    
 }
 
 function nuPreloadImages($a){

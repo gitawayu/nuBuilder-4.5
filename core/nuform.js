@@ -1178,6 +1178,8 @@ function nuINPUTLookup(id, objId, wi, obj, $fromId, p, vis) {
 		.css('visibility', vis);
 
 	if (obj.label === 'Insert-Snippet') $('#' + id).css('font-size', '18px');
+    nuAddJSObjectEvents(id, obj.js);  
+    // 7-Mar-2023: Line above added.  See https://forums.nubuilder.cloud/viewtopic.php?t=11919
 
 	id = p + obj.id + 'description';
 	var desc = document.createElement('input');
